@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		F273C1621B629838005BA996 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F273C1611B629838005BA996 /* AppDelegate.swift */; };
 		F273C1641B629838005BA996 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F273C1631B629838005BA996 /* ViewController.swift */; };
-		F273C1671B629838005BA996 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F273C1651B629838005BA996 /* Main.storyboard */; };
 		F273C1691B629838005BA996 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F273C1681B629838005BA996 /* Assets.xcassets */; };
 		F273C16C1B629838005BA996 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F273C16A1B629838005BA996 /* LaunchScreen.storyboard */; };
-		F273C1771B629839005BA996 /* BirthdaysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F273C1761B629839005BA996 /* BirthdaysTests.swift */; };
+		F2E158201B76018E00D83F09 /* BirthdaysListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1581F1B76018E00D83F09 /* BirthdaysListViewControllerTests.swift */; };
+		F2E158221B76052000D83F09 /* BirthdaysListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E158211B76052000D83F09 /* BirthdaysListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +29,13 @@
 		F273C15E1B629838005BA996 /* Birthdays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birthdays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F273C1611B629838005BA996 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F273C1631B629838005BA996 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F273C1661B629838005BA996 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F273C1681B629838005BA996 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F273C16B1B629838005BA996 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F273C16D1B629838005BA996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F273C1721B629839005BA996 /* BirthdaysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BirthdaysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F273C1761B629839005BA996 /* BirthdaysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdaysTests.swift; sourceTree = "<group>"; };
 		F273C1781B629839005BA996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2E1581F1B76018E00D83F09 /* BirthdaysListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BirthdaysListViewControllerTests.swift; path = BirthdaysList/BirthdaysListViewControllerTests.swift; sourceTree = "<group>"; };
+		F2E158211B76052000D83F09 /* BirthdaysListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BirthdaysListViewController.swift; path = BirthdaysList/BirthdaysListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,7 @@
 			children = (
 				F273C1611B629838005BA996 /* AppDelegate.swift */,
 				F273C1631B629838005BA996 /* ViewController.swift */,
-				F273C1651B629838005BA996 /* Main.storyboard */,
+				F2E158211B76052000D83F09 /* BirthdaysListViewController.swift */,
 				F273C1681B629838005BA996 /* Assets.xcassets */,
 				F273C16A1B629838005BA996 /* LaunchScreen.storyboard */,
 				F273C16D1B629838005BA996 /* Info.plist */,
@@ -90,7 +90,7 @@
 		F273C1751B629839005BA996 /* BirthdaysTests */ = {
 			isa = PBXGroup;
 			children = (
-				F273C1761B629839005BA996 /* BirthdaysTests.swift */,
+				F2E1581F1B76018E00D83F09 /* BirthdaysListViewControllerTests.swift */,
 				F273C1781B629839005BA996 /* Info.plist */,
 			);
 			path = BirthdaysTests;
@@ -178,7 +178,6 @@
 			files = (
 				F273C16C1B629838005BA996 /* LaunchScreen.storyboard in Resources */,
 				F273C1691B629838005BA996 /* Assets.xcassets in Resources */,
-				F273C1671B629838005BA996 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E158221B76052000D83F09 /* BirthdaysListViewController.swift in Sources */,
 				F273C1641B629838005BA996 /* ViewController.swift in Sources */,
 				F273C1621B629838005BA996 /* AppDelegate.swift in Sources */,
 			);
@@ -205,7 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F273C1771B629839005BA996 /* BirthdaysTests.swift in Sources */,
+				F2E158201B76018E00D83F09 /* BirthdaysListViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,14 +220,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F273C1651B629838005BA996 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F273C1661B629838005BA996 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F273C16A1B629838005BA996 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -385,6 +377,7 @@
 				F273C17D1B629839005BA996 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F273C17E1B629839005BA996 /* Build configuration list for PBXNativeTarget "BirthdaysTests" */ = {
 			isa = XCConfigurationList;
@@ -393,6 +386,7 @@
 				F273C1801B629839005BA996 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
