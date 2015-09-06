@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let viewController = BirthdaysListViewController()
     viewController.dataProvider = BirthdaysListDataProvider()
-    window!.rootViewController = viewController
+    window!.rootViewController = UINavigationController(rootViewController: viewController)
     window!.makeKeyAndVisible()
     
     return true

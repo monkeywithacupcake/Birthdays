@@ -11,20 +11,29 @@ import UIKit
 class BirthdaysListDataProvider: NSObject, UITableViewDataSource {
 
   private let cellIdentifer = "Cell"
+  private var birthdays = [Birthday]()
   
   func registerCellsForTableView(tableView: UITableView) {
-    tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifer)
+    tableView.registerClass(BirthdayCell.self, forCellReuseIdentifier: cellIdentifer)
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 10
+    return birthdays.count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer, forIndexPath: indexPath)
+    let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer, forIndexPath: indexPath) as! BirthdayCell
     
-    cell.textLabel?.text = "Row: \(indexPath.row)"
+    let birthday = birthdays[indexPath.row]
+    cell.nameLabel.text = birthday.firstName
+    cell.birthdayLabel.text = "\(birthday.birthday.day) \(birthday.birthday.month)"
     
     return cell
+  }
+}
+
+extension BirthdaysListDataProvider {
+  func addBirthday(birthday: Birthday) {
+    birthdays.append(birthday)
   }
 }

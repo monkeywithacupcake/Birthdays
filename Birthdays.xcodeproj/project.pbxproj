@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F23C96591B939796003B8710 /* BirthdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23C96581B939796003B8710 /* BirthdayCell.swift */; settings = {ASSET_TAGS = (); }; };
 		F24406991B807CB8006DAE0D /* BirthdaysListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24406981B807CB8006DAE0D /* BirthdaysListDataProvider.swift */; };
 		F273C1621B629838005BA996 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F273C1611B629838005BA996 /* AppDelegate.swift */; };
 		F273C1691B629838005BA996 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F273C1681B629838005BA996 /* Assets.xcassets */; };
 		F273C16C1B629838005BA996 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F273C16A1B629838005BA996 /* LaunchScreen.storyboard */; };
+		F29B8ACD1B8A2A4B0023D334 /* Birthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29B8ACC1B8A2A4B0023D334 /* Birthday.swift */; };
 		F2E158201B76018E00D83F09 /* BirthdaysListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1581F1B76018E00D83F09 /* BirthdaysListViewControllerTests.swift */; };
 		F2E158221B76052000D83F09 /* BirthdaysListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E158211B76052000D83F09 /* BirthdaysListViewController.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F23C96581B939796003B8710 /* BirthdayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BirthdayCell.swift; path = BirthdaysList/BirthdayCell.swift; sourceTree = "<group>"; };
 		F24406981B807CB8006DAE0D /* BirthdaysListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BirthdaysListDataProvider.swift; path = BirthdaysList/BirthdaysListDataProvider.swift; sourceTree = "<group>"; };
 		F273C15E1B629838005BA996 /* Birthdays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birthdays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F273C1611B629838005BA996 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 		F273C16D1B629838005BA996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F273C1721B629839005BA996 /* BirthdaysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BirthdaysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F273C1781B629839005BA996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F29B8ACC1B8A2A4B0023D334 /* Birthday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Birthday.swift; path = Model/Birthday.swift; sourceTree = "<group>"; };
 		F2E1581F1B76018E00D83F09 /* BirthdaysListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BirthdaysListViewControllerTests.swift; path = BirthdaysList/BirthdaysListViewControllerTests.swift; sourceTree = "<group>"; };
 		F2E158211B76052000D83F09 /* BirthdaysListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BirthdaysListViewController.swift; path = BirthdaysList/BirthdaysListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +84,8 @@
 				F273C1611B629838005BA996 /* AppDelegate.swift */,
 				F2E158211B76052000D83F09 /* BirthdaysListViewController.swift */,
 				F24406981B807CB8006DAE0D /* BirthdaysListDataProvider.swift */,
+				F29B8ACC1B8A2A4B0023D334 /* Birthday.swift */,
+				F23C96581B939796003B8710 /* BirthdayCell.swift */,
 				F273C1681B629838005BA996 /* Assets.xcassets */,
 				F273C16A1B629838005BA996 /* LaunchScreen.storyboard */,
 				F273C16D1B629838005BA996 /* Info.plist */,
@@ -195,9 +201,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F29B8ACD1B8A2A4B0023D334 /* Birthday.swift in Sources */,
 				F2E158221B76052000D83F09 /* BirthdaysListViewController.swift in Sources */,
 				F273C1621B629838005BA996 /* AppDelegate.swift in Sources */,
 				F24406991B807CB8006DAE0D /* BirthdaysListDataProvider.swift in Sources */,
+				F23C96591B939796003B8710 /* BirthdayCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
