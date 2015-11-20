@@ -21,7 +21,11 @@ class BirthdaysListViewController: UITableViewController {
     
     let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addPerson")
     navigationItem.rightBarButtonItem = addButton
-    
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    dataProvider?.today = NSDate()
   }
   
   func addPerson() {

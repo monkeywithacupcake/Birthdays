@@ -14,6 +14,7 @@ class BirthdayCell: UITableViewCell {
   let nameLabel: UILabel
   let patternNameLabel: UILabel
   let birthdayLabel: UILabel
+  var patternWidthConstraint: NSLayoutConstraint?
   
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     
@@ -47,7 +48,8 @@ class BirthdayCell: UITableViewCell {
     
     layoutConstraints += NSLayoutConstraint.constraintsWithVisualFormat("|[pattern]", options: [], metrics: nil, views: views)
     layoutConstraints += NSLayoutConstraint.constraintsWithVisualFormat("V:|[pattern]|", options: [], metrics: nil, views: views)
-    layoutConstraints.append(patternView.trailingAnchor.constraintEqualToAnchor(trailingAnchor, constant: -150))
+    patternWidthConstraint = patternView.widthAnchor.constraintEqualToConstant(0)
+    layoutConstraints.append(patternWidthConstraint!)
     layoutConstraints.append(nameLabel.centerXAnchor.constraintEqualToAnchor(centerXAnchor))
     layoutConstraints.append(nameLabel.centerYAnchor.constraintEqualToAnchor(centerYAnchor))
     layoutConstraints += NSLayoutConstraint.constraintsWithVisualFormat("[birthday]-|", options: [], metrics: nil, views: views)
@@ -61,5 +63,9 @@ class BirthdayCell: UITableViewCell {
 
   required init?(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
+  }
+  
+  func updateProgress(progress: Float) {
+    patternWidthConstraint?.constant = CGFloat(progress)*frame.size.width
   }
 }

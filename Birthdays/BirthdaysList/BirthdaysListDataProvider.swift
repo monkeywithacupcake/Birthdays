@@ -12,6 +12,15 @@ class BirthdaysListDataProvider: NSObject, UITableViewDataSource {
 
   private let cellIdentifer = "Cell"
   private var birthdays = [Birthday]()
+  private let gregorian = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+  var todayComponents: NSDateComponents?
+  var today: NSDate? {
+    didSet {
+      if let today = today {
+        todayComponents = gregorian?.components([.Month, .Day, .Year], fromDate: today)
+      }
+    }
+  }
   
   func registerCellsForTableView(tableView: UITableView) {
     tableView.registerClass(BirthdayCell.self, forCellReuseIdentifier: cellIdentifer)
@@ -29,12 +38,35 @@ class BirthdaysListDataProvider: NSObject, UITableViewDataSource {
     cell.patternNameLabel.text = birthday.firstName
     cell.birthdayLabel.text = "\(birthday.birthday.day) \(birthday.birthday.month)"
     
+    if let progress = progressUntilBirthday(birthday) {
+      cell.updateProgress(progress)
+    }
+    
     return cell
+  }
+  
+  func progressUntilBirthday(birthday: Birthday) -> Float? {
+    let calculationComponents = birthday.birthday
+    
+    if let today = today, todayComponents = todayComponents, date = birthday.birthday.date {
+      if gregorian!.compareDate(today, toDate: date, toUnitGranularity: [.Month, .Day]) == .OrderedDescending {
+        calculationComponents.year = todayComponents.year + 1
+      } else {
+        calculationComponents.year = todayComponents.year + 1
+      }
+      
+      let components = gregorian?.components([.Day], fromDateComponents: todayComponents, toDateComponents: calculationComponents, options: [])
+      
+      return 1.0-Float(components!.day)/Float(365)
+    } else {
+      return nil
+    }
   }
 }
 
 extension BirthdaysListDataProvider {
   func addBirthday(birthday: Birthday) {
     birthdays.append(birthday)
+    birthdays.sortInPlace { progressUntilBirthday($0) > progressUntilBirthday($1) }
   }
 }
