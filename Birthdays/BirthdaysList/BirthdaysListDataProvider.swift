@@ -48,11 +48,11 @@ class BirthdaysListDataProvider: NSObject, UITableViewDataSource {
   func progressUntilBirthday(birthday: Birthday) -> Float? {
     let calculationComponents = birthday.birthday
     
-    if let today = today, todayComponents = todayComponents, date = birthday.birthday.date {
-      if gregorian!.compareDate(today, toDate: date, toUnitGranularity: [.Month, .Day]) == .OrderedDescending {
+    if let todayComponents = todayComponents {
+      if calculationComponents.month < todayComponents.month || (calculationComponents.month == todayComponents.month && calculationComponents.day < todayComponents.day) {
         calculationComponents.year = todayComponents.year + 1
       } else {
-        calculationComponents.year = todayComponents.year + 1
+        calculationComponents.year = todayComponents.year
       }
       
       let components = gregorian?.components([.Day], fromDateComponents: todayComponents, toDateComponents: calculationComponents, options: [])
