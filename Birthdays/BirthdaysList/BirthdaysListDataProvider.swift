@@ -46,14 +46,16 @@ class BirthdaysListDataProvider: NSObject, UITableViewDataSource {
   }
   
   func progressUntilBirthday(birthday: Birthday) -> Float? {
-    print(birthday)
-    if let today = today, todayComponents = todayComponents, _ = birthday.birthday.date {
-      let calculationComponents = birthday.birthday.copy() as! NSDateComponents
+    
+    let calculationComponents = birthday.birthday.copy() as! NSDateComponents
+    if let todayComponents = todayComponents {
       calculationComponents.year = todayComponents.year
-      if gregorian!.compareDate(today, toDate: calculationComponents.date!, toUnitGranularity: .Day) == .OrderedDescending {
+      if calculationComponents.month < todayComponents.month || (calculationComponents.month == todayComponents.month && calculationComponents.day < todayComponents.day) {
         calculationComponents.year += 1 // Swift 3 compliant ...
       }
+      
       let components = gregorian?.components([.Day], fromDateComponents: todayComponents, toDateComponents: calculationComponents, options: [])
+      
       return 1.0-Float(components!.day)/Float(365)
     } else {
       return nil
