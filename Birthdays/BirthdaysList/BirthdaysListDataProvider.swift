@@ -34,32 +34,31 @@ class BirthdaysListDataProvider: NSObject, UITableViewDataSource {
     let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer, forIndexPath: indexPath) as! BirthdayCell
     
     let birthday = birthdays[indexPath.row]
-    cell.nameLabel.text = birthday.firstName
-    cell.patternNameLabel.text = birthday.firstName
-    cell.birthdayLabel.text = "\(birthday.birthday.day) \(birthday.birthday.month)"
-    
-    if let progress = progressUntilBirthday(birthday) {
-      cell.updateProgress(progress)
-    }
+    cell.updateWithItem(birthday, progress: progressUntilBirthday(birthday))
     
     return cell
   }
   
-  func progressUntilBirthday(birthday: Birthday) -> Float? {
+  func progressUntilBirthday(birthday: Birthday) -> Float {
     
+    guard let todayComponents = todayComponents else { return 0.0 }
+
     let calculationComponents = birthday.birthday.copy() as! NSDateComponents
-    if let todayComponents = todayComponents {
-      calculationComponents.year = todayComponents.year
-      if calculationComponents.month < todayComponents.month || (calculationComponents.month == todayComponents.month && calculationComponents.day < todayComponents.day) {
-        calculationComponents.year += 1 // Swift 3 compliant ...
-      }
+    calculationComponents.year = todayComponents.year
+    
+    if calculationComponents.month < todayComponents.month ||
+      (calculationComponents.month == todayComponents.month &&
+        calculationComponents.day < todayComponents.day) {
       
-      let components = gregorian?.components([.Day], fromDateComponents: todayComponents, toDateComponents: calculationComponents, options: [])
-      
-      return 1.0-Float(components!.day)/Float(365)
-    } else {
-      return nil
+      calculationComponents.year += 1 // Swift 3 compliant ...
     }
+    
+    let components = gregorian?.components([.Day],
+                                           fromDateComponents: todayComponents,
+                                           toDateComponents: calculationComponents,
+                                           options: [])
+    
+    return 1.0-Float(components!.day)/Float(365)
   }
 }
 

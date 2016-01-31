@@ -65,7 +65,14 @@ class BirthdayCell: UITableViewCell {
       fatalError("init(coder:) has not been implemented")
   }
   
-  func updateProgress(progress: Float) {
-    patternWidthConstraint?.constant = CGFloat(progress)*frame.size.width
+  func updateWithItem<T>(item: T, progress: Float) {
+    if item is Birthday {
+      let birthday = item as! Birthday
+      nameLabel.text = birthday.firstName
+      patternNameLabel.text = birthday.firstName
+      birthdayLabel.text = "\(birthday.birthday.day) \(birthday.birthday.month)"
+
+      patternWidthConstraint?.constant = CGFloat(progress)*frame.size.width
+    }
   }
 }
